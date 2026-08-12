@@ -15,3 +15,8 @@ ISO/IEC 27001:2022 · NIST CSF · IEC 62443 · Purdue Model · MITRE ATT&CK & AT
 ## Avertissement
 Entreprise, infrastructure et données entièrement fictives. Aucun équipement
 industriel réel n'est utilisé. Tous les tests sont réalisés en environnement isolé.
+
+## Architecture
+
+![Architecture logique du SI AEROSEC](01_Architecture/Architecture.png)
+
