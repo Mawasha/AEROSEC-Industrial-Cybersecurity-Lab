@@ -1,0 +1,6 @@
+﻿*.vdi
+*.vmdk
+*.iso
+*.ova
+*.tmp
+Thumbs.db
