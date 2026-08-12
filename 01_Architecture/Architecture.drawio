@@ -1,0 +1,189 @@
+<mxfile host="app.diagrams.net" modified="2026-08-12T22:00:00.000Z" agent="AEROSEC" version="24.0.0">
+  <diagram name="AEROSEC-Architecture-Logique" id="aerosec-merged-01">
+    <mxGraphModel dx="1800" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1650" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t1" value="AEROSEC INDUSTRIES — Architecture logique du SI" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="60" y="25" width="900" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="Segmentation IT / OT — Modèle de Purdue — IEC 62443 — Laboratoire de cybersécurité industrielle" style="text;html=1;align=left;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="58" width="900" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="net" value="INTERNET" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="200" height="95" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fw" value="FW-AEROSEC&#xa;pfSense CE — 7 interfaces&#xa;Politique : DENY BY DEFAULT — Suricata IDS&#xa;Journalisation de tous les flux refusés" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F2937;strokeColor=#0B1220;fontColor=#FFFFFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="235" width="340" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fwlvl" value="Purdue niveau 3.5 / périmètre" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="570" y="332" width="340" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_net_fw" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="net" target="fw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z10" value="VLAN 10 — ADMINISTRATION&#xa;10.10.10.0/24 — GW .254 — Purdue 4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="250" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="m_wsadmin" value="WS-ADMIN&#xa;Windows 11 — .100&#xa;Poste d'administration (tiering)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="210" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z20" value="VLAN 20 — UTILISATEURS&#xa;10.10.20.0/24 — GW .254 — Purdue 4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="280" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="m_wsuser" value="WS-USER01&#xa;Windows 11 Entreprise — DHCP .100&#xa;Poste utilisateur / station d'ingénierie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="445" width="240" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="m_kali" value="WS-TEST — Kali Linux — .150 — machine de test contrôlée" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="360" y="510" width="240" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z30" value="VLAN 30 — SERVEURS&#xa;10.10.30.0/24 — GW .254 — Purdue 4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="400" width="300" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="m_ad" value="SRV-AD01 — .10&#xa;Windows Server 2022 — AD DS · DNS · DHCP&#xa;(héberge aussi les partages au lab)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="445" width="260" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="m_files" value="SRV-FILES — .20 — Serveur de fichiers dédié" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=9;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="670" y="510" width="260" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z40" value="VLAN 40 — SOC / SÉCURITÉ&#xa;10.10.40.0/24 — GW .254 — transversal" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="400" width="300" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="m_wazuh" value="SRV-WAZUH — .10&#xa;Ubuntu Server — SIEM Wazuh&#xa;Indexer · Manager · Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="445" width="260" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="m_suri" value="Suricata IDS — déployé en package sur FW-AEROSEC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="510" width="260" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z65" value="VLAN 65 — DMZ INDUSTRIELLE&#xa;10.10.65.0/24 — GW .254 — Purdue niveau 3.5 — rupture protocolaire obligatoire (IEC 62443)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;fontSize=11;fontStyle=1;dashed=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="380" y="640" width="640" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="m_jump" value="SRV-JUMP-OT — .10&#xa;Rebond d'administration OT&#xa;Authentification renforcée" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=9;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="400" y="700" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m_hist" value="SRV-HISTORIAN — .20&#xa;Miroir des données procédé&#xa;Lecture seule côté IT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=9;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="605" y="700" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m_patch" value="SRV-PATCH-OT — .30&#xa;Relais de mises à jour&#xa;et antivirus hors ligne" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=9;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="810" y="700" width="190" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="zot" value="ZONE INDUSTRIELLE — aucun accès Internet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;verticalAlign=top;fontSize=12;fontStyle=1;dashed=1;strokeWidth=3;fontColor=#8B0000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="860" width="800" height="270" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z60" value="VLAN 60 — OT SUPERVISION&#xa;10.10.60.0/24 — Purdue niveau 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="900" width="345" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="m_scada" value="SCADA-01 — .10&#xa;Ubuntu Server + FUXA&#xa;Supervision · IHM · Alarmes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="345" y="945" width="305" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="m_eng" value="WS-ENG — .40 — Station d'ingénierie dédiée" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=9;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="345" y="1010" width="305" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="z61" value="VLAN 61 — OT CONTRÔLE&#xa;10.10.61.0/24 — Purdue niveau 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="900" width="345" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="m_plc" value="PLC-01 — .10&#xa;Ubuntu Server + OpenPLC&#xa;Automate programmable simulé&#xa;Modbus/TCP — port 502" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="945" width="305" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="m_proc" value="Procédé simulé — Purdue niveau 0 : convoyage → usinage → contrôle → stockage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;dashed=1;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="1024" width="305" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_fw10" value="RDP/WinRM&#xa;3389 · 5985" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;fontSize=9;" edge="1" parent="1" source="fw" target="z10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fw20" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1" source="fw" target="z20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fw30" value="AD · DNS · SMB&#xa;53 · 88 · 389 · 445" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;fontSize=9;" edge="1" parent="1" source="fw" target="z30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fw40" value="Agents Wazuh&#xa;1514 · 1515 · syslog 514" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;fontSize=9;" edge="1" parent="1" source="fw" target="z40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fw65" value="Relais applicatifs uniquement&#xa;aucun flux IT → OT direct" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;fontSize=9;fontStyle=1;" edge="1" parent="1" source="fw" target="z65">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1150" y="600" />
+              <mxPoint x="1150" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_6560" value="Rupture protocolaire&#xa;jump / historian" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;fontSize=9;" edge="1" parent="1" source="z65" target="z60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_modbus" value="Modbus/TCP — 502&#xa;SCADA-01 est la SEULE source autorisée&#xa;toute autre source : refusée et journalisée" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#8B0000;" edge="1" parent="1" source="m_scada" target="m_plc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="blk1" value="✖ BLOQUÉ&#xa;VLAN 20 → VLAN 61&#xa;Aucun poste bureautique&#xa;n'atteint l'automate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#8B0000;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="400" width="270" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="blk2" value="✖ BLOQUÉ&#xa;OT → INTERNET&#xa;Mises à jour via SRV-PATCH-OT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#8B0000;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="490" width="270" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="blk3" value="✖ BLOQUÉ&#xa;INTERNET → IT / OT / SOC&#xa;Seule la DMZ est exposée" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#8B0000;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="580" width="270" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="blk4" value="✖ BLOQUÉ&#xa;VLAN 20 → VLAN 40&#xa;La supervision n'est pas&#xa;accessible aux utilisateurs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#8B0000;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="670" width="270" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="siem" value="COLLECTE SIEM&#xa;Toutes les zones remontent vers VLAN 40.&#xa;Flux toujours initiés par l'agent vers le SIEM,&#xa;jamais l'inverse — la compromission du SOC&#xa;n'ouvre pas d'accès aux machines supervisées." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="770" width="270" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lg" value="LÉGENDE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1170" width="640" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_a" value="Composant implémenté dans le laboratoire" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1205" width="290" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_b" value="Composant de l'architecture cible non implémenté&#xa;(contrainte de ressources — écarts documentés)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEDED;strokeColor=#999999;dashed=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1245" width="290" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_c" value="Flux autorisé — besoin métier justifié dans la matrice de flux" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="425" y="1200" width="265" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_cl" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="385" y="1213" as="sourcePoint" />
+            <mxPoint x="420" y="1213" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_d" value="✖  Flux explicitement refusé et journalisé" style="text;html=1;align=left;fontSize=10;fontColor=#8B0000;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="1240" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_e" value="Politique pare-feu : DENY BY DEFAULT. Chaque règle d'autorisation&#xa;est adossée à une ligne de la matrice de flux (dossier 02_Network).&#xa;Toutes les règles sont configurées avec journalisation active." style="text;html=1;align=left;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1295" width="600" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cart" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8F8F8;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1170" width="470" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_t" value="AEROSEC INDUSTRIES — Architecture logique du SI" style="text;html=1;align=left;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1185" width="440" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_b" value="Auteur : Dornelles FOKOUA&#xa;Version : 2.0&#xa;Date : août 2026&#xa;Référentiels : ISO/IEC 27001:2022 — IEC 62443 — NIST CSF&#xa;MITRE ATT&amp;amp;CK &amp;amp; ATT&amp;amp;CK for ICS — Modèle de Purdue" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1212" width="440" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_w" value="Environnement de laboratoire — entreprise, infrastructure et données&#xa;entièrement fictives. Aucun équipement industriel réel n'est utilisé.&#xa;Tous les tests sont réalisés en environnement isolé." style="text;html=1;align=left;fontSize=9;fontStyle=2;fontColor=#8B0000;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1295" width="440" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
